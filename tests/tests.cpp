@@ -25,6 +25,12 @@ TEST(General, ObjectSize) {
     EXPECT_EQ(sizeof(FixedPoint<uint16_t, 3>), sizeof(uint16_t));
 }
 
+TEST(General, CastToInt) { 
+    using FP = FixedPoint<int32_t, 2>;
+
+    EXPECT_EQ(static_cast<int32_t>(FP(34.56)), 34);
+}
+
 TEST(Operators, Minus) {
     using FP = FixedPoint<int, 2>;
 

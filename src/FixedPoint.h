@@ -26,6 +26,10 @@ public:
         }
     }
 
+    explicit operator T() const {
+        return m_raw / SCALE;
+    }
+
     inline constexpr FixedPoint operator-() const
     {
         return FixedPoint<T, P>(-m_raw, P);
