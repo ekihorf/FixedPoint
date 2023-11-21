@@ -51,3 +51,35 @@ TEST(Operators, Divide) {
     EXPECT_EQ(FP(1.23) / FP(-4.56), FP(-0.269));
     EXPECT_EQ(FP(23.0) / FP(9.0), FP(2.555));
 }
+
+TEST(Operators, AssignAdd) {
+    using FP = FixedPoint<int, 2>;
+
+    FP a(1.23);
+    a += FP(3.33);
+    EXPECT_EQ(a, FP(4.56));
+}
+
+TEST(Operators, AssignSubtract) {
+    using FP = FixedPoint<int, 2>;
+
+    FP a(1.23);
+    a -= FP(0.23);
+    EXPECT_EQ(a, FP(1.0));
+}
+
+TEST(Operators, AssignMultiply) {
+    using FP = FixedPoint<int32_t, 3>;
+
+    FP a(1.23);
+    a *= FP(4.56);
+    EXPECT_EQ(a, FP(5.608));
+}
+
+TEST(Operators, AssignDivide) {
+    using FP = FixedPoint<int32_t, 3>;
+
+    FP a(23.0);
+    a /= FP(9.0);
+    EXPECT_EQ(a, FP(2.555));
+}

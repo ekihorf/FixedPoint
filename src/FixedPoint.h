@@ -47,22 +47,24 @@ public:
 
     inline constexpr void operator+=(const FixedPoint& other)
     {
-
+        m_raw += other.m_raw;
     }
 
     inline constexpr void operator-=(const FixedPoint& other)
     {
-
+        m_raw -= other.m_raw;
     }
 
     inline constexpr void operator*=(const FixedPoint& other)
     {
-
+        m_raw *= other.m_raw;
+        m_raw /= SCALE;
     }
 
     inline constexpr void operator/=(const FixedPoint& other)
     {
-
+        m_raw *= SCALE;
+        m_raw /= other.m_raw;
     }
 
     inline constexpr bool operator>(const FixedPoint& other) const
