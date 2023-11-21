@@ -69,22 +69,22 @@ public:
 
     inline constexpr bool operator>(const FixedPoint& other) const
     {
-        return false;
+        return m_raw > other.m_raw;
     }
 
     inline constexpr bool operator<(const FixedPoint& other) const
     {
-        return false;
+        return m_raw < other.m_raw;
     }
 
     inline constexpr bool operator>=(const FixedPoint& other) const
     {
-        return false;
+        return m_raw >= other.m_raw;
     }
 
     inline constexpr bool operator<=(const FixedPoint& other) const
     {
-        return false;
+        return m_raw <= other.m_raw;
     }
 
     inline constexpr bool operator==(const FixedPoint& other) const

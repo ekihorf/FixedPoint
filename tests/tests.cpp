@@ -83,3 +83,37 @@ TEST(Operators, AssignDivide) {
     a /= FP(9.0);
     EXPECT_EQ(a, FP(2.555));
 }
+
+TEST(Operators, Equality) {
+    using FP = FixedPoint<int, 2>;
+
+    ASSERT_TRUE(FP(1.23) == FP(1.23));
+    ASSERT_FALSE(FP(1.23) == FP(1.24));
+
+    ASSERT_TRUE(FP(1.23) != FP(1.24));
+    ASSERT_FALSE(FP(1.23) != FP(1.23));
+}
+
+TEST(Operators, Comparison) {
+    using FP = FixedPoint<int, 2>;
+
+    ASSERT_TRUE(FP(1.23) > FP(1.22));
+    ASSERT_TRUE(FP(-1.22) > FP(-1.23));
+    ASSERT_FALSE(FP(1.23) > FP(1.23));
+    ASSERT_FALSE(FP(1.23) > FP(1.24));
+
+    ASSERT_TRUE(FP(1.23) >= FP(1.22));
+    ASSERT_TRUE(FP(-1.22) >= FP(-1.23));
+    ASSERT_TRUE(FP(1.23) >= FP(1.23));
+    ASSERT_FALSE(FP(1.23) >= FP(1.24));
+
+    ASSERT_TRUE(FP(1.22) < FP(1.23));
+    ASSERT_TRUE(FP(-1.23) < FP(-1.22));
+    ASSERT_FALSE(FP(1.23) < FP(1.23));
+    ASSERT_FALSE(FP(1.24) < FP(1.23));
+
+    ASSERT_TRUE(FP(1.22) <= FP(1.23));
+    ASSERT_TRUE(FP(-1.23) <= FP(-1.22));
+    ASSERT_TRUE(FP(1.23) <= FP(1.23));
+    ASSERT_FALSE(FP(1.24) <= FP(1.23));
+}
