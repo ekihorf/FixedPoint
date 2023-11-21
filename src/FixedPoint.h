@@ -115,3 +115,8 @@ private:
     T m_raw;
     static constexpr T SCALE{pow10(P)};
 };
+
+using Fixed32_2 = FixedPoint<int32_t, 2>;
+using Fixed32_3 = FixedPoint<int32_t, 3>;
+using Fixed64_3 = FixedPoint<int64_t, 3>;
+using Fixed64_6 = FixedPoint<int64_t, 6>;
