@@ -35,12 +35,14 @@ TEST(Operators, Add) {
     using FP = FixedPoint<int, 2>;
 
     EXPECT_EQ(FP(1.23) + FP(2.22), FP(3.45));
+    EXPECT_EQ(FP(1.23) + 1, FP(2.23));
 }
 
 TEST(Operators, Subtract) {
     using FP = FixedPoint<int, 2>;
 
     EXPECT_EQ(FP(1.23) - FP(2.22), FP(-0.99));
+    EXPECT_EQ(FP(1.23) - 1, FP(0.23));
 }
 
 TEST(Operators, Multiply) {
@@ -48,6 +50,7 @@ TEST(Operators, Multiply) {
 
     EXPECT_EQ(FP(1.23) * FP(-4.56), FP(-5.608));
     EXPECT_EQ(FP(1.56) * FP(21.483), FP(33.513));
+    EXPECT_EQ(FP(1.25) * 3, FP(3.75));
 }
 
 TEST(Operators, Divide) {
@@ -55,6 +58,7 @@ TEST(Operators, Divide) {
 
     EXPECT_EQ(FP(1.23) / FP(-4.56), FP(-0.269));
     EXPECT_EQ(FP(23.0) / FP(9.0), FP(2.555));
+    EXPECT_EQ(FP(3.75) / 3, FP(1.25));
 }
 
 TEST(Operators, AssignAdd) {
@@ -63,6 +67,9 @@ TEST(Operators, AssignAdd) {
     FP a(1.23);
     a += FP(3.33);
     EXPECT_EQ(a, FP(4.56));
+
+    a += 1;
+    EXPECT_EQ(a, FP(5.56));
 }
 
 TEST(Operators, AssignSubtract) {
@@ -71,6 +78,9 @@ TEST(Operators, AssignSubtract) {
     FP a(1.23);
     a -= FP(0.23);
     EXPECT_EQ(a, FP(1.0));
+
+    a -= 3;
+    EXPECT_EQ(a, FP(-2.0));
 }
 
 TEST(Operators, AssignMultiply) {
@@ -79,6 +89,9 @@ TEST(Operators, AssignMultiply) {
     FP a(1.23);
     a *= FP(4.56);
     EXPECT_EQ(a, FP(5.608));
+
+    a *= 2;
+    EXPECT_EQ(a, FP(11.216));
 }
 
 TEST(Operators, AssignDivide) {
@@ -87,6 +100,9 @@ TEST(Operators, AssignDivide) {
     FP a(23.0);
     a /= FP(9.0);
     EXPECT_EQ(a, FP(2.555));
+
+    a /= 2;
+    EXPECT_EQ(a, FP(1.277));
 }
 
 TEST(Operators, Equality) {

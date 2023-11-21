@@ -10,6 +10,11 @@ public:
         m_raw = static_cast<T>(val * SCALE + (val < 0 ? -0.5 : 0.5));
     }
 
+    inline constexpr FixedPoint(T val)
+    {
+        m_raw = val * SCALE;
+    }
+
     inline constexpr FixedPoint(T raw_val, int precision)
     {
         if (precision == P) {
