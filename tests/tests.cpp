@@ -6,7 +6,7 @@ void PrintTo(const FixedPoint<int32_t, 4>& fp, std::ostream* os) {
     *os << fp.getRawVal();
 }
 
-TEST(Construction, Construction) {
+TEST(General, Construction) {
     FixedPoint<int, 4> a(1.23);
     FixedPoint<int, 4> b(12300, 4);
     FixedPoint<int, 4> c(123, 2);
@@ -18,6 +18,11 @@ TEST(Construction, Construction) {
     FixedPoint<int, 4> x(-56088, 4);
     FixedPoint<int, 4> y(-5.6088);
     EXPECT_EQ(x, y);
+}
+
+TEST(General, ObjectSize) {
+    EXPECT_EQ(sizeof(FixedPoint<uint32_t, 3>), sizeof(uint32_t));
+    EXPECT_EQ(sizeof(FixedPoint<uint16_t, 3>), sizeof(uint16_t));
 }
 
 TEST(Operators, Minus) {
